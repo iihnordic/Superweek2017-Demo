@@ -1,0 +1,9 @@
+<script>
+(function () {
+	var googleOutputItem = document.getElementById("googleOutput");
+	if ({{Google - Sentiment Analysis - Polarity}} != undefined && {{Google - Sentiment Analysis - Magnitude}} != undefined) {
+		googleOutputItem.innerHTML = 'Polarity: {{Google - Sentiment Analysis - Polarity}}<br\>' + 
+									'Magnitude: {{Google - Sentiment Analysis - Magnitude}}';
+	}
+})();
+</script>

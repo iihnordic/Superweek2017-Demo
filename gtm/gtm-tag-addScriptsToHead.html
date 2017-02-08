@@ -1,0 +1,17 @@
+<script>
+(function() {
+    var script = undefined;
+  
+	// Algorithmia script
+	script = document.createElement('script');
+	script.type = 'text/javascript';
+	script.src = '//algorithmia.com/v1/clients/js/algorithmia-0.2.0.js';    
+	document.getElementsByTagName('head')[0].appendChild(script);
+
+	// Google script
+	script = document.createElement('script');
+	script.type = 'text/javascript';
+	script.src = 'https://apis.google.com/js/api.js';    
+	document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>

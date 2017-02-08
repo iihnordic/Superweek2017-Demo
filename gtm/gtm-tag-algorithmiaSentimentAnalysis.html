@@ -1,0 +1,23 @@
+<script>
+(function () {
+	try {
+		if (typeof Algorithmia === 'object' && {{Sentiment Analysis - Input Text}} != undefined) {
+			Algorithmia.client('{{Algorithmia - Client ID}}')
+				.algo('algo://StanfordNLP/SentimentAnalysis/0.1.0')
+				.pipe('{{Sentiment Analysis - Input Text}}')
+				.then(function (output) {
+					dataLayer.push({
+						event: 'algorithmiaSentiment',
+						algorithmiaSentimentResult: output.result
+					});
+				});
+		}
+	}
+	catch (e) {
+		dataLayer.push({
+        	event: 'algorithmiaSentimentError',
+        	algorithmiaSentimentErrorMessage: e.message
+      	});
+	}
+})();
+</script>
