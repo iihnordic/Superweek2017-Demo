@@ -1,43 +1,43 @@
 <script>
 (function () {
-	function start() {
-		try {
-			gapi.client.init({
-					'apiKey': '{{Google - API Key}}',
-					'discoveryDocs': ['https://language.googleapis.com/$discovery/rest?version=v1beta1']
-				})
-				.then(function () {
-					return gapi.client.language.documents.analyzeSentiment({
-						'document': {
-							'type': 'PLAIN_TEXT',
-							'content': '{{Sentiment Analysis - Input Text}})'
-						}
-					});
-				})
-				.then(function (output) {
-						dataLayer.push({
-							event: 'googleSentiment',
-							googleSentimentPolarity: output.result.documentSentiment.polarity,
-							googleSentimentMagnitude: output.result.documentSentiment.magnitude
-						});
-					},
-					function (error) {
-						dataLayer.push({
-							event: 'googleSentimentError',
-							googleSentimentErrorMessage: error.result
-						});
-					});
-		}
-		catch (e) {
-			dataLayer.push({
-				event: 'googleSentimentError',
-				googleSentimentErrorMessage: e.message
-			});
-		}
-	}
+    function start() {
+        try {
+            gapi.client.init({
+                    'apiKey': '{{Google - API Key}}',
+                    'discoveryDocs': ['https://language.googleapis.com/$discovery/rest?version=v1beta1']
+                })
+                .then(function () {
+                    return gapi.client.language.documents.analyzeSentiment({
+                        'document': {
+                            'type': 'PLAIN_TEXT',
+                            'content': '{{Sentiment Analysis - Input Text}})'
+                        }
+                    });
+                })
+                .then(function (output) {
+                        dataLayer.push({
+                            event: 'googleSentiment',
+                            googleSentimentPolarity: output.result.documentSentiment.polarity,
+                            googleSentimentMagnitude: output.result.documentSentiment.magnitude
+                        });
+                    },
+                    function (error) {
+                        dataLayer.push({
+                            event: 'googleSentimentError',
+                            googleSentimentErrorMessage: error.result
+                        });
+                    });
+        }
+        catch (e) {
+            dataLayer.push({
+                event: 'googleSentimentError',
+                googleSentimentErrorMessage: e.message
+            });
+        }
+    }
 
-	if (typeof gapi === 'object' && {{Sentiment Analysis - Input Text}} != undefined) {
-		gapi.load('client', start);
-	}
+    if (typeof gapi === 'object' && {{Sentiment Analysis - Input Text}} != undefined) {
+        gapi.load('client', start);
+    }
 })();
 </script>
